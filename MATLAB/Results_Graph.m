@@ -1,11 +1,11 @@
 % An example showing how to plot the result
 close all;clear;clc
-load ./Result/QGC_Result.mat  % Change to your own filename
-load ./Data/QGC/QGC_net_input.mat
+load C:\Users\Usuario\OneDrive\Documents\GitHub\DRECT\MATLAB\Result\QGC_Result.mat  % Change to your own filename
+load C:\Users\Usuario\OneDrive\Documents\GitHub\DRECT\MATLAB\Data\QGC\QGC_net_input.mat
 
 % parameters
 dc1 = 0;  % dc1, dc2: Display range of diffusion coefficient dimension              
-dc2 = calculated_max_D;
+dc2 = 1;%calculated_max_D;
 cs1 = ppm(idx_peaks(1)-fix(length(ppm)/100));  % cs1, cs2: Display range of chemical shift dimension
 cs2 = ppm(idx_peaks(end)+fix(length(ppm)/100));
 contour_level = 40; % Determines the number and positions of the contour lines / regions.
@@ -19,7 +19,7 @@ t.Padding = 'tight';
 nexttile()
 cs_spec = zeros([length(ppm), 1]);
 cs_spec(idx_peaks, :) = S(:, 1);
-plot(ppm,cs_spec, "Color",'k');set(gca,'Xdir','reverse');axis off;
+plot(ppm,cs_spec, Color,'k');set(gca,'Xdir','reverse');axis off;
 xlim([cs1,cs2]);
 
 nexttile(2, [2, 1])
